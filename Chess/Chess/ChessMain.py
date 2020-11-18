@@ -3,6 +3,9 @@ from Chess import ChessEngine
 
 
 p.init()
+p.display.set_caption('Chess')
+icon = p.image.load('icon.png')
+p.display.set_icon(icon)
 
 WIDTH = HEIGHT = 400
 DIMENSION = 8
@@ -11,6 +14,8 @@ SQ_SIZE = HEIGHT // DIMENSION
 MAX_FPS = 15
 IMAGES = {}
 
+screen = p.display.set_mode((WIDTH, HEIGHT))
+
 
 def loadImages():
     pieces = ["bR", "bN", "bB", "bQ", "bK", "bP", "wR", "wN", "wB", "wQ", "wK", "wP"]
@@ -18,8 +23,53 @@ def loadImages():
         IMAGES[piece] = p.transform.scale(p.image.load("images/" + piece + ".png"), (SQ_SIZE, SQ_SIZE))
 
 
+def text_objects(text, font):
+    textSurface = font.render(text, True, p.Color("black"))
+    return textSurface, textSurface.get_rect()
+
+
+def button(msg, x, y, w, h, ic, ac, action=None ):
+    mouse = p.mouse.get_pos()
+    click = p.mouse.get_pressed()
+
+
+    if x+w > mouse[0] > x and y+h > mouse[1] > y:
+        p.draw.rect(screen, ac, (x, y, w, h))
+
+        if click[0] == 1 and action != None:
+            action()
+    else:
+        p.draw.rect(screen, ic, (x, y, w, h))
+
+    smallText = p.font.SysFont("comicsansms", 20)
+    textSurf, textRect = text_objects(msg, smallText)
+    textRect.center = ((x+(w/2)), (y+(h/2)))
+    screen.blit(textSurf, textRect)
+
+
+def gameIntro():
+    clock = p.time.Clock()
+    screen.fill(p.Color("white"))
+    running = True
+    while running:
+        for e in p.event.get():
+            if e.type == p.QUIT:
+                running = False
+
+        screen.fill(p.Color(220, 211, 214))
+        largeText = p.font.Font('freesansbold.ttf', 50)
+        TextSurf, TextRect = text_objects("CHESS", largeText)
+        TextRect.center = ((WIDTH / 2), (HEIGHT / 4))
+        screen.blit(TextSurf, TextRect)
+
+        button("Start", 50, 250, 100, 50, p.Color(87, 58, 46), p.Color(97, 58, 46), main)
+        button("Quit", 250, 250, 100, 50, p.Color(87, 58, 46), p.Color(97, 58, 46), p.quit)
+
+
+        p.display.update()
+        clock.tick(MAX_FPS)
+
 def main():
-    screen = p.display.set_mode((WIDTH, HEIGHT))
     clock = p.time.Clock()
     screen.fill(p.Color("white"))
     gs = ChessEngine.GameState()
@@ -89,4 +139,6 @@ def drawPieces(screen, board)  :
 
 
 if __name__ == "__main__":
-    main()
+    gameIntro()
+    p.quit()
+    quit()
