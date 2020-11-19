@@ -1,4 +1,5 @@
 import pygame as p
+from pygame import mixer
 from Chess import ChessEngine
 
 
@@ -16,7 +17,6 @@ MAX_FPS = 15
 IMAGES = {}
 
 screen = p.display.set_mode((WIDTH, HEIGHT))
-
 
 def loadImages():
     pieces = ["bR", "bN", "bB", "bQ", "bK", "bP", "wR", "wN", "wB", "wQ", "wK", "wP"]
@@ -114,6 +114,8 @@ def main():
         if moveMade:
             validMoves = gs.getValidMoves()
             moveMade = False
+            mixer.music.load("move.wav")
+            mixer.music.play()
 
         drawGameState(screen, gs)
         clock.tick(MAX_FPS)
