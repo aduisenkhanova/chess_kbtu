@@ -1,6 +1,6 @@
 import pygame as p
 from pygame import mixer
-from chess import ChessEngine
+from Chess import ChessEngine
 
 
 p.init()
@@ -17,6 +17,7 @@ MAX_FPS = 15
 IMAGES = {}
 
 screen = p.display.set_mode((WIDTH, HEIGHT))
+
 
 def loadImages():
     pieces = ["bR", "bN", "bB", "bQ", "bK", "bP", "wR", "wN", "wB", "wQ", "wK", "wP"]
@@ -47,7 +48,12 @@ def button(msg, x, y, w, h, ic, ac, action=None):
     screen.blit(textSurf, textRect)
 
 
+def quit_game():
+    p.quit()
+
+
 def gameIntro():
+
     clock = p.time.Clock()
     screen.fill(p.Color("white"))
     running = True
@@ -63,7 +69,7 @@ def gameIntro():
         screen.blit(TextSurf, TextRect)
 
         button("Start", 50, 250, 100, 50, p.Color(87, 58, 46), p.Color(97, 58, 46), main)
-        # button("Quit", 250, 250, 100, 50, p.Color(87, 58, 46), p.Color(97, 58, 46), p.quit)
+        button("Quit", 250, 250, 100, 50, p.Color(87, 58, 46), p.Color(97, 58, 46), quit_game)
 
         p.display.update()
         clock.tick(MAX_FPS)
