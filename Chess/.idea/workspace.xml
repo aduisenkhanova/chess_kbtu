@@ -23,11 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f66d2e2-1978-4bc1-b807-da348d1988ee" name="Default Changelist" comment="Done: Check and Checkmate. Sound of the movement has been added.">
-      <change beforePath="$PROJECT_DIR$/.idea/Chess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Chess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/ChessEngine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/ChessEngine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/ChessMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/ChessMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/chess_kbtu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/chess_kbtu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
       <recent name="C:\Users\aseld\chess\chess_kbtu\Chess\Chess" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ChessMain (1)">
+  <component name="RunManager" selected="Python.chess_kbtu">
     <configuration name="ChessMain (1)" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Chess" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -79,6 +76,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Chess/ChessMain.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ChessMain (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/ChessMain.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,7 +147,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="chessMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="chess_kbtu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -141,7 +159,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Chess/chessMain.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Chess/chess_kbtu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -163,27 +181,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$USER_HOME$/python-chess/modules/computer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="derivatives" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/project" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/project/derivatives.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -215,11 +212,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.chess_kbtu" />
+        <item itemvalue="Python.ChessMain (2)" />
         <item itemvalue="Python.computer" />
         <item itemvalue="Python.draw_chessboard" />
         <item itemvalue="Python.ChessMain" />
-        <item itemvalue="Python.chessMain" />
-        <item itemvalue="Python.derivatives" />
       </list>
     </recent_temporary>
   </component>
@@ -279,42 +276,42 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1605540524747" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1605856422923">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1606364200371">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1605856422923" />
-    <state width="1259" height="163" key="GridCell.Tab.0.bottom" timestamp="1606237700102">
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1606364200371" />
+    <state width="1259" height="165" key="GridCell.Tab.0.bottom" timestamp="1606573704489">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606237700102" />
-    <state width="1259" height="163" key="GridCell.Tab.0.center" timestamp="1606237700102">
+    <state width="1259" height="165" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606573704489" />
+    <state width="1259" height="165" key="GridCell.Tab.0.center" timestamp="1606573704488">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1606237700102" />
-    <state width="1259" height="163" key="GridCell.Tab.0.left" timestamp="1606237700102">
+    <state width="1259" height="165" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1606573704488" />
+    <state width="1259" height="165" key="GridCell.Tab.0.left" timestamp="1606573704488">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1606237700102" />
-    <state width="1259" height="163" key="GridCell.Tab.0.right" timestamp="1606237700102">
+    <state width="1259" height="165" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1606573704488" />
+    <state width="1259" height="165" key="GridCell.Tab.0.right" timestamp="1606573704488">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1606237700102" />
-    <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1605805462137">
+    <state width="1259" height="165" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1606573704488" />
+    <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1606549773603">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1605805462137" />
-    <state width="1259" height="204" key="GridCell.Tab.1.center" timestamp="1605805462137">
+    <state width="1259" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606549773603" />
+    <state width="1259" height="204" key="GridCell.Tab.1.center" timestamp="1606549773603">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1605805462137" />
-    <state width="1259" height="204" key="GridCell.Tab.1.left" timestamp="1605805462137">
+    <state width="1259" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1606549773603" />
+    <state width="1259" height="204" key="GridCell.Tab.1.left" timestamp="1606549773603">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1605805462137" />
-    <state width="1259" height="204" key="GridCell.Tab.1.right" timestamp="1605805462137">
+    <state width="1259" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1606549773603" />
+    <state width="1259" height="204" key="GridCell.Tab.1.right" timestamp="1606549773603">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1605805462137" />
+    <state width="1259" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1606549773603" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1605857273585">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -327,9 +324,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605804284600" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1606234660167">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1606549065124">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1606234660167" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1606549065124" />
   </component>
 </project>

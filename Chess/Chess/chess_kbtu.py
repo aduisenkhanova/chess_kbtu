@@ -292,7 +292,7 @@ def draw_board(sc):
     for r in range(DIMENSION):
         for c in range(DIMENSION):
             color = colors[(r+c) % 2]
-            p.draw.rect(screen, color, p.Rect(c * SQ_SIZE, r * SQ_SIZE, SQ_SIZE, SQ_SIZE))
+            p.draw.rect(sc, color, p.Rect(c * SQ_SIZE, r * SQ_SIZE, SQ_SIZE, SQ_SIZE))
 
 
 def draw_pieces(sc, board):
@@ -300,7 +300,7 @@ def draw_pieces(sc, board):
         for c in range(DIMENSION):
             piece = board[r][c]
             if piece != "--":
-                screen.blit(IMAGES[piece], p.Rect(c * SQ_SIZE, r * SQ_SIZE, SQ_SIZE, SQ_SIZE))
+                sc.blit(IMAGES[piece], p.Rect(c * SQ_SIZE, r * SQ_SIZE, SQ_SIZE, SQ_SIZE))
 
 
 def animate_move(move, sc, board, clock):
@@ -310,20 +310,20 @@ def animate_move(move, sc, board, clock):
     frame_count = (abs(dr) + abs(dc))
     for frame in range(frame_count + 1):
         r, c = (move.start_row + dr*frame/frame_count, move.start_col + dc*frame/frame_count)
-        draw_board(screen)
-        draw_pieces(screen, board)
+        draw_board(sc)
+        draw_pieces(sc, board)
         color = colors[(move.end_row + move.end_col) % 2]
         end_square = p.Rect(move.end_col*SQ_SIZE, move.end_row*SQ_SIZE, SQ_SIZE, SQ_SIZE)
-        p.draw.rect(screen, color, end_square)
+        p.draw.rect(sc, color, end_square)
         if move.piece_captured != '--':
-            screen.blit(IMAGES[move.piece_captured], end_square)
-        screen.blit(IMAGES[move.piece_moved], p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
+            sc.blit(IMAGES[move.piece_captured], end_square)
+        sc.blit(IMAGES[move.piece_moved], p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
         p.display.flip()
         clock.tick(60)
 
 
 def draw_text(sc, text):
-    font = p.font.SysFont("Roboto", 35, True, False)
+    font = p.font.SysFont(FONT_BOLD, 70, True, False)
     text_object = font.render(text, False, p.Color('Gray'))
     text_location = p.Rect(0, 0, WIDTH, HEIGHT).move(WIDTH/2 - text_object.get_width()/2,
                                                      HEIGHT/2 - text_object.get_height()/2)
@@ -333,7 +333,7 @@ def draw_text(sc, text):
 
 
 def text_objects(text, font):
-    text_surface = font.render(text, True, p.Color("black"))
+    text_surface = font.render(text, True, p.Color(0, 0, 0))
     return text_surface, text_surface.get_rect()
 
 
@@ -375,14 +375,14 @@ def main():
     move_made = False  # flag variable for when a move is made
     animate = False
     load_images()
-    running = True
+    run = True
     sq_selected = ()  # no square selected initially. but this simply keep track of the last click of the user
     player_clicks = []  # keep track of user clicks
     game_over = False
-    while running:
+    while run:
         for e in p.event.get():
             if e.type == p.QUIT:
-                running = False
+                run = False
             elif e.type == p.MOUSEBUTTONDOWN:
                 if not game_over:
                     location = p.mouse.get_pos()  # (x,y) location of the mouse
@@ -444,6 +444,8 @@ def main():
         clock.tick(MAX_FPS)
         p.display.flip()
 
+    p.quit()
+
 
 def game_intro():
     clock = p.time.Clock()
@@ -451,15 +453,15 @@ def game_intro():
 
     mixer.music.load("classical.wav")
     mixer.music.play(-1)
+
+    bg = p.image.load("bg.png")
+    screen.blit(p.transform.scale(bg, (WIDTH, HEIGHT)), (0, 0))
     run = True
 
     while run:
         for e in p.event.get():
             if e.type == p.QUIT:
                 run = False
-
-        bg = p.image.load("bg.png")
-        screen.blit(p.transform.scale(bg, (WIDTH, HEIGHT)), (0, 0))
         text_surf, text_rect = text_objects('C H E S S', MENU_TEXT)
         text_rect.center = (int(WIDTH / 2), int(HEIGHT * 0.25))
         screen.blit(text_surf, text_rect)
@@ -473,19 +475,13 @@ def game_intro():
         button("Sound On", 270, 400, 80, 30, acolor, icolor, unpause)
         button("Sound Off", 370, 400, 80, 30, acolor, icolor, pause)
 
-        p.display.update()
         clock.tick(MAX_FPS)
+        p.display.flip()
+    p.quit()
 
 
 if __name__ == "__main__":
     p.init()
-
-    SCREEN = p.display.set_mode((WIDTH, HEIGHT))
-    BUTTON_WIDTH = int(WIDTH * 0.625 // 3)
-    BUTTON_HEIGHT = int(HEIGHT * 5 // 81)
-    button_x_start = (WIDTH - BUTTON_WIDTH) // 2
-    button_layout_4 = [(button_x_start, HEIGHT * 5 // 13, BUTTON_WIDTH, BUTTON_HEIGHT),
-                       (button_x_start, HEIGHT * 6 // 13, BUTTON_WIDTH, BUTTON_HEIGHT)]
     MENU_TEXT = p.font.Font(FONT_REG, int(150 / 1080 * HEIGHT))
     LARGE_TEXT = p.font.Font(FONT_LIGHT, int(60 / 1080 * HEIGHT))
     MEDIUM_TEXT = p.font.Font(FONT_LIGHT, int(40 / 1440 * HEIGHT))
