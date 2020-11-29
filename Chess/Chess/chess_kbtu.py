@@ -11,7 +11,7 @@ WIDTH = HEIGHT = 520
 DIMENSION = 8
 
 SQ_SIZE = HEIGHT // DIMENSION
-MAX_FPS = 15
+MAX_FPS = 60
 IMAGES = {}
 
 FONT_BOLD = 'fonts/OpenSans-SemiBold.ttf'
@@ -19,6 +19,11 @@ FONT_REG = 'fonts/OpenSans-Regular.ttf'
 FONT_LIGHT = 'fonts/OpenSans-Light.ttf'
 
 screen = p.display.set_mode((WIDTH, HEIGHT))
+
+need_input1 = False
+need_input2 = False
+player1 = ''
+player2 = ''
 
 
 class GameState:
@@ -318,18 +323,64 @@ def animate_move(move, sc, board, clock):
         if move.piece_captured != '--':
             sc.blit(IMAGES[move.piece_captured], end_square)
         sc.blit(IMAGES[move.piece_moved], p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
-        p.display.flip()
-        clock.tick(60)
+
+        p.display.update()
+        clock.tick(MAX_FPS)
 
 
-def draw_text(sc, text):
-    font = p.font.SysFont(FONT_BOLD, 70, True, False)
+def draw_text(text, s, x, y):
+    font = p.font.SysFont(FONT_BOLD, s, True, False)
     text_object = font.render(text, False, p.Color('Gray'))
-    text_location = p.Rect(0, 0, WIDTH, HEIGHT).move(WIDTH/2 - text_object.get_width()/2,
-                                                     HEIGHT/2 - text_object.get_height()/2)
-    sc.blit(text_object, text_location)
+    text_location = p.Rect(0, 0, WIDTH, HEIGHT).move(x, y)
+    screen.blit(text_object, text_location)
     text_object = font.render(text, False, p.Color('Black'))
-    sc.blit(text_object, text_location.move(2, 2))
+    screen.blit(text_object, text_location.move(2, 2))
+
+
+def get_input():
+
+    global need_input1, need_input2, player1, player2
+    input_player1 = p.Rect(120, 300, 110, 30)
+    input_player2 = p.Rect(320, 300, 110, 30)
+
+    p.draw.rect(screen, (255, 255, 255), input_player1)
+    p.draw.rect(screen, (255, 255, 255), input_player2)
+
+    mouse = p.mouse.get_pos()
+    click = p.mouse.get_pressed()
+
+    if input_player1.collidepoint(mouse[0], mouse[1]) and click[0]:
+        need_input1 = True
+
+    if need_input1:
+        for e in p.event.get():
+            if e.type == p.KEYDOWN:
+                if e.type == p.K_RETURN:
+                    need_input1 = False
+                    player1 = ''
+                elif e.type == p.K_BACKSPACE:
+                    player1 = player1[:-1]
+                else:
+                    player1 += e.unicode
+
+    if input_player2.collidepoint(mouse[0], mouse[1]) and click[0]:
+        need_input2 = True
+
+    if need_input2:
+        for e in p.event.get():
+            if e.type == p.KEYDOWN:
+                if e.type == p.K_RETURN:
+                    need_input2 = False
+                    player2 = ''
+                elif e.type == p.K_BACKSPACE:
+                    player2 = player2[:-1]
+                else:
+                    player2 += e.unicode
+
+    draw_text("White", 30, 50, 305)
+    draw_text(player1, 30, 120, 305)
+    draw_text("Black", 30, 250, 305)
+    draw_text(player2, 30, 320, 305)
 
 
 def text_objects(text, font):
@@ -366,9 +417,25 @@ def pause():
     mixer.music.pause()
 
 
+def pause_game():
+    clock = p.time.Clock()
+    paused = True
+    while paused:
+        for event in p.event.get():
+            if event.type == p.QUIT:
+                p.quit()
+
+        draw_text('Paused. Press enter to continue', 40, 15, 255)
+        keys = p.key.get_pressed()
+        if keys[p.K_RETURN]:
+            paused = False
+        p.display.update()
+        clock.tick(MAX_FPS)
+
+
 def main():
     clock = p.time.Clock()
-    screen.fill(p.Color("white"))
+    screen.fill(p.Color("grey"))
     gs = GameState()
 
     valid_moves = gs.get_valid_moves()
@@ -419,6 +486,8 @@ def main():
                     player_clicks = []
                     move_made = False
                     animate = False
+                if e.key == p.K_ESCAPE:
+                    pause_game()
 
         if move_made:
             if animate:
@@ -434,15 +503,15 @@ def main():
         if gs.check_mate:
             game_over = True
             if gs.white_to_move:
-                draw_text(screen, 'BLACK WINS!')
+                draw_text('BLACK WINS!', 70, 150, 230)
             else:
-                draw_text(screen, 'WHITE WINS!')
+                draw_text('WHITE WINS!', 70, 150, 230)
         elif gs.stale_mate:
             game_over = True
-            draw_text(screen, 'Stalemate')
+            draw_text('Stalemate', 70, 120, 230)
 
+        p.display.update()
         clock.tick(MAX_FPS)
-        p.display.flip()
 
     p.quit()
 
@@ -455,15 +524,18 @@ def game_intro():
     mixer.music.play(-1)
 
     bg = p.image.load("bg.png")
-    screen.blit(p.transform.scale(bg, (WIDTH, HEIGHT)), (0, 0))
     run = True
 
     while run:
         for e in p.event.get():
             if e.type == p.QUIT:
-                run = False
+                p.quit()
+                quit()
+
+        screen.blit(p.transform.scale(bg, (WIDTH, HEIGHT)), (0, 0))
+
         text_surf, text_rect = text_objects('C H E S S', MENU_TEXT)
-        text_rect.center = (int(WIDTH / 2), int(HEIGHT * 0.25))
+        text_rect.center = (int(WIDTH / 2), int(HEIGHT * 0.35))
         screen.blit(text_surf, text_rect)
         text_surf, text_rect = text_objects('Created by Aizada, Akbota, Assel, Malika', MEDIUM_TEXT)
         text_rect.center = (int(WIDTH / 2), int(HEIGHT * 0.9))
@@ -475,9 +547,10 @@ def game_intro():
         button("Sound On", 270, 400, 80, 30, acolor, icolor, unpause)
         button("Sound Off", 370, 400, 80, 30, acolor, icolor, pause)
 
+        get_input()
+
+        p.display.update()
         clock.tick(MAX_FPS)
-        p.display.flip()
-    p.quit()
 
 
 if __name__ == "__main__":

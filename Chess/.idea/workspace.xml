@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f66d2e2-1978-4bc1-b807-da348d1988ee" name="Default Changelist" comment="Done: Check and Checkmate. Sound of the movement has been added.">
+    <list default="true" id="5f66d2e2-1978-4bc1-b807-da348d1988ee" name="Default Changelist" comment="Small Corrections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/chess_kbtu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/chess_kbtu.py" afterDir="false" />
     </list>
@@ -250,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605805364760</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Small Corrections">
+      <created>1606573944755</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606573944755</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,7 +276,8 @@
     <MESSAGE value="Starting Menu has been added" />
     <MESSAGE value="Starting Menu was created. All possible moves were written." />
     <MESSAGE value="Done: Check and Checkmate. Sound of the movement has been added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Done: Check and Checkmate. Sound of the movement has been added." />
+    <MESSAGE value="Small Corrections" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small Corrections" />
   </component>
   <component name="WindowStateProjectService">
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605540524747">
@@ -280,53 +288,53 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1606364200371" />
-    <state width="1259" height="165" key="GridCell.Tab.0.bottom" timestamp="1606573704489">
+    <state width="1259" height="154" key="GridCell.Tab.0.bottom" timestamp="1606665461030">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="165" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606573704489" />
-    <state width="1259" height="165" key="GridCell.Tab.0.center" timestamp="1606573704488">
+    <state width="1259" height="154" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606665461030" />
+    <state width="1259" height="154" key="GridCell.Tab.0.center" timestamp="1606665461030">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="165" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1606573704488" />
-    <state width="1259" height="165" key="GridCell.Tab.0.left" timestamp="1606573704488">
+    <state width="1259" height="154" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1606665461030" />
+    <state width="1259" height="154" key="GridCell.Tab.0.left" timestamp="1606665461030">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="165" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1606573704488" />
-    <state width="1259" height="165" key="GridCell.Tab.0.right" timestamp="1606573704488">
+    <state width="1259" height="154" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1606665461030" />
+    <state width="1259" height="154" key="GridCell.Tab.0.right" timestamp="1606665461030">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="165" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1606573704488" />
-    <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1606549773603">
+    <state width="1259" height="154" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1606665461030" />
+    <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1606651411584">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606549773603" />
-    <state width="1259" height="204" key="GridCell.Tab.1.center" timestamp="1606549773603">
+    <state width="1259" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606651411584" />
+    <state width="1259" height="204" key="GridCell.Tab.1.center" timestamp="1606651411583">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1606549773603" />
-    <state width="1259" height="204" key="GridCell.Tab.1.left" timestamp="1606549773603">
+    <state width="1259" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1606651411583" />
+    <state width="1259" height="204" key="GridCell.Tab.1.left" timestamp="1606651411583">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1606549773603" />
-    <state width="1259" height="204" key="GridCell.Tab.1.right" timestamp="1606549773603">
+    <state width="1259" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1606651411583" />
+    <state width="1259" height="204" key="GridCell.Tab.1.right" timestamp="1606651411584">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1606549773603" />
+    <state width="1259" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1606651411584" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1605857273585">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1605857273585" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605805374821">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1606573949969">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605805374821" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1606573949969" />
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605804284600">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605804284600" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1606549065124">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1606657909778">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1606549065124" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1606657909778" />
   </component>
 </project>
