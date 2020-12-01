@@ -178,7 +178,7 @@ class GameState:
                     elif end_piece[0] == enemy_color:  # empty piece valid
                         moves.append(Move((r, c), (end_row, end_col), self.board))
                         break
-                    else:  # friendly piece
+                    else: # friendly piece
                         break
                 else:  # off board
                     break
@@ -308,26 +308,6 @@ def draw_pieces(sc, board):
                 sc.blit(IMAGES[piece], p.Rect(c * SQ_SIZE, r * SQ_SIZE, SQ_SIZE, SQ_SIZE))
 
 
-def animate_move(move, sc, board, clock):
-    colors = [p.Color(242, 238, 220), p.Color(87, 58, 46)]
-    dr = move.end_row - move.start_row
-    dc = move.end_col - move.start_col
-    frame_count = (abs(dr) + abs(dc))
-    for frame in range(frame_count + 1):
-        r, c = (move.start_row + dr*frame/frame_count, move.start_col + dc*frame/frame_count)
-        draw_board(sc)
-        draw_pieces(sc, board)
-        color = colors[(move.end_row + move.end_col) % 2]
-        end_square = p.Rect(move.end_col*SQ_SIZE, move.end_row*SQ_SIZE, SQ_SIZE, SQ_SIZE)
-        p.draw.rect(sc, color, end_square)
-        if move.piece_captured != '--':
-            sc.blit(IMAGES[move.piece_captured], end_square)
-        sc.blit(IMAGES[move.piece_moved], p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
-
-        p.display.update()
-        clock.tick(MAX_FPS)
-
-
 def draw_text(text, s, x, y):
     font = p.font.SysFont(FONT_BOLD, s, True, False)
     text_object = font.render(text, False, p.Color('Gray'))
@@ -440,7 +420,6 @@ def main():
 
     valid_moves = gs.get_valid_moves()
     move_made = False  # flag variable for when a move is made
-    animate = False
     load_images()
     run = True
     sq_selected = ()  # no square selected initially. but this simply keep track of the last click of the user
@@ -468,7 +447,6 @@ def main():
                             if move == valid_moves[i]:
                                 gs.make_move(valid_moves[i])
                                 move_made = True
-                                animate = True
                                 sq_selected = ()  # reset user clicks
                                 player_clicks = []
                         if not move_made:
@@ -478,23 +456,18 @@ def main():
                 if e.key == p.K_z:
                     gs.undo_move()
                     move_made = True
-                    animate = False
                 if e.key == p.K_r:
                     gs = GameState()
                     valid_moves = gs.get_valid_moves()
                     sq_selected = ()
                     player_clicks = []
                     move_made = False
-                    animate = False
                 if e.key == p.K_ESCAPE:
                     pause_game()
 
         if move_made:
-            if animate:
-                animate_move(gs.move_log[-1], screen, gs.board, clock)
             valid_moves = gs.get_valid_moves()
             move_made = False
-            animate = False
             mixer.music.load("move.wav")
             mixer.music.play()
 
